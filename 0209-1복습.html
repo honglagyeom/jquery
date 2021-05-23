@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+		*{padding:0; margin:0; position:relative;}
+		.wrap{width:600px;height:400px; margin:100px auto 0;
+			display:flex; align-items:center; justify-content:center;
+		}
+		.wrap .item{width:100px;height:400px;
+			display:flex; align-items:center; justify-content:center;
+			box-shadow:0 0 10px rgba(0, 0, 0, 0.3);
+			transition:0.3s;
+		}
+		.wrap .item:nth-child(1){background-color:#00af91;}
+		.wrap .item:nth-child(2){background-color:#cd5d7d;}
+		.wrap .item:nth-child(3){background-color:#f88f01}
+		.wrap .item:nth-child(4){background-color:skyblue}
+		.wrap .item span{
+			transition:0.3s;
+			display:block; border-radius:50%;
+			width:50px; height:50px;border:10px solid white; text-align:center; font-size:30px;
+			font-weight:900; font-family:'Noto Sans KR', sans-serif;color:white;line-height:50px;}
+		.active-item{width:300px !important;}
+		.active-item span{width:80px !important;
+			height:80px !important;
+			line-height:80px !important;
+			font-size:50px !important;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="item"><span>1</span></div>
+    <div class="item"><span>2</span></div>
+    <div class="item"><span>3</span></div>
+    <div class="item"><span>4</span></div>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(".wrap .item").click(function(){
+		i=$(this).index();
+		$(".wrap .item").eq(i).addClass("active-item")
+		$(".wrap .item").not($(".wrap .item").eq(i)).removeClass("active-item")
+	})
+</script>

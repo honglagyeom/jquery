@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; position: relative;}
+        .slider{
+            border: 1px solid black;
+            margin: 30px auto;
+            width: 850px;
+            height: 220px;
+        }
+        .slider .btn-box{
+            position: absolute;
+            top: calc(50% - 15px);
+            z-index: 100;
+            width: 100%;
+        }
+        .slider .btn-box .btn{
+            z-index: 100;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color:#584747;
+            color: white;
+            font-size: 17px;
+            border: none;
+            border-radius: 20%;
+            outline: none;
+        }
+        .slider .btn-box .btn1{left: -40px;}
+        .slider .btn-box .btn2{right: -40px;}
+        .slider .img-box{
+            width: 100%;
+            top: 10px;
+        }
+        .slider .img-box .item{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            font-size: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 900;
+            transition: 0.3s;
+        }
+        .slider .img-box .item1{background-color: red;}
+        .slider .img-box .item2{background-color: orange;}
+        .slider .img-box .item3{background-color: yellow;}
+        .slider .img-box .item4{background-color: green;}
+        .slider .img-box .item5{background-color: blue;}
+        .slider .img-box .item6{background-color: navy;}
+        .slider .img-box .item7{background-color: purple;}
+        .slider .img-box .item:nth-child(1){left:-200px; opacity: 0;}
+        .slider .img-box .item:nth-child(2){left:-200px; opacity: 0;}
+        .slider .img-box .item:nth-child(3){left:-200px; opacity: 0;}
+        .slider .img-box .item:nth-child(4){left:-200px;}
+        /*        여기부터 보이게*/
+        .slider .img-box .item:nth-child(5){left: 10px;}
+        .slider .img-box .item:nth-child(6){left: 220px;}
+        .slider .img-box .item:nth-child(7){left: 430px;}
+        .slider .img-box .item:nth-child(8){left: 640px;}
+        /*        여기까지*/
+        .slider .img-box .item:nth-child(9){left: 850px;}
+        .slider .img-box .item:nth-child(10){left: 850px; opacity: 0;}
+        .slider .img-box .item:nth-child(11){left: 850px; opacity: 0;}
+        .slider .img-box .item:nth-child(12){left: 850px; opacity: 0;}
+        .slider .img-box .item:nth-child(13){left: 850px;opacity: 0;}
+        .slider .img-box .item:nth-child(14){left: 850px; opacity: 0;}
+    </style>
+</head>
+<body>
+<section class="slider">
+    <div class="btn-box">
+        <button class="btn btn1" data-dir="l">◀</button>
+        <button class="btn btn2" data-dir="r">▶</button>
+    </div>
+    <div class="img-box">
+        <div class="item item1">red</div>
+        <div class="item item2">orange</div>
+        <div class="item item3">yellow</div>
+        <div class="item item4">green</div>
+        <div class="item item5">blue</div>
+        <div class="item item6">navy</div>
+        <div class="item item7">purple</div>
+        <div class="item item1">red</div>
+        <div class="item item2">orange</div>
+        <div class="item item3">yellow</div>
+        <div class="item item4">green</div>
+        <div class="item item5">blue</div>
+        <div class="item item6">navy</div>
+        <div class="item item7">purple</div>
+    </div>
+</section>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    
+var dir="r" //시작하면 오른쪽으로 설정해둠
+var timer=setInterval(move, 1000, dir) //초기값
+var delay_timer;
+    
+    $(".btn").click(function(){
+        dir=$(this).attr("data-dir") //data-dir을 얻어오는 것
+        console.log(dir)
+        clearInterval(timer); 
+        clearTimeout(delay_timer); //쌓여있던 딜레이 날려버리기
+        move(dir)
+        delay_timer=setTimeout(function(){
+            timer=setInterval(move, 1000, dir) //dir 입력하면 클릭한곳 방향으로 인터벌 진행됨 
+        },3000) ///3초딜레이되고 다시 인터벌 실행
+    })
+    
+    function move(dir){
+        if(dir=="l"){
+            $(".item").first().appendTo(".img-box")
+        } else if(dir=="r"){
+            $(".item").last().prependTo(".img-box")
+        }
+    }
+    
+    $(".slider").mouseenter(function(){
+        clearInterval(timer)
+    })
+    $(".slider").mouseleave(function(){
+        clearInterval(timer)
+        clearTimeout(delay_timer)
+        delay_timer=setTimeout(function(){
+            timer=setInterval(move, 1000, dir)
+        },3000)
+    })
+    
+    //
+    //alert("경고창 출력") //문서시작하자마자 경고창출력
+
+    //setInterval(함수명,시간,매개변수 등)
+    //setTimeout(함수,딜레이시간,매개변수 등)
+    //setTimeout(function(){ alert("딜레이") },5000) 
+    //5초있다가 딜레이 경고창 출력되게하는 코드
+
+    //
+    //$(".btn1").click(function(){
+    //    $(".item").first().appendTo(".img-box")
+    //}) 
+    //$(".btn2").click(function(){
+    //    $(".item").last().prependTo(".img-box")
+    //})
+    //
+</script>

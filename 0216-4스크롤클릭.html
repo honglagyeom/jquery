@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+		*{padding:0; margin:0; position:relative;list-style:none;font-family:'Noto Sans KR', sans-serif;}
+		header{background:black; transition:0.5s;
+			position:fixed;top:0; left:0; width:100%; height:150px;z-index:100;
+		}
+		header h1{height:100px;text-align:center; color:white;font-size:100px; line-height:100px;}
+		header ul{height:50px; display:flex; justify-content:center;}
+		header li{border:1px solid gold;text-transform:uppercase;font-size:18px; color:white;
+			height:50px;line-height:50px; padding:0 15px;
+			cursor:pointer;
+		}
+		.main{}
+		.main .section{width:100%; height:100vh; display:flex; align-items:center; justify-content:center;
+			font-size:40vw;font-weight:900;}
+		.main .section1{background:skyblue}
+		.main .section2{background:antiquewhite}
+		.main .section3{background:gold}
+		.main .section4{background:hotpink}
+		.main .section5{background:bisque}
+		.main .section6{background:aliceblue;}
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LOGO</h1>
+    <ul>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+        <li>menu6</li>
+    </ul>
+</header>
+<div class="main">
+    <section class="section section1">1</section>
+    <section class="section section2">2</section>
+    <section class="section section3">3</section>
+    <section class="section section4">4</section>
+    <section class="section section5">5</section>
+    <section class="section section6">6</section>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	bb()
+
+	$("header li").click(function(){
+		num=$(this).index();
+		win_height=$(window).height();
+		console.log("순번:"+num);
+		console.log("화면높이:"+win_height);
+		$("html").stop().animate({scrollTop:num*win_height})
+	})
+
+	$(window).scroll(function(){
+		bb()
+	})
+
+	function bb(){
+		scr_top=$(window).scrollTop();
+		win_height=$(window).height();
+		//console.log("scr_top:"+scr_top)
+        if(scr_top>100){
+        	$("header").css({top:-100})
+        }else{
+			$("header").css({top:0})
+        }
+        ////////
+		if(scr_top < win_height){
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(0).css({background:"gold",color:"black"})
+		}else if(scr_top >= win_height && scr_top < win_height*2){
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(1).css({background:"gold",color:"black"})
+		}else if(scr_top >= win_height*2 && scr_top < win_height*3){
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(2).css({background:"gold",color:"black"})
+		}else if(scr_top >= win_height*3 && scr_top < win_height*4){
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(3).css({background:"gold",color:"black"})
+		}else if(scr_top >= win_height*4 && scr_top < win_height*5-500){
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(4).css({background:"gold",color:"black"})
+		}else{
+			$("header li").css({background:"none",color:"white"})
+			$("header li").eq(5).css({background:"gold",color:"black"})
+		}
+	}
+
+</script>

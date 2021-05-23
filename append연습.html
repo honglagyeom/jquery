@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .mat-wrap {
+            max-width: 1300px;
+            margin: 30px auto;
+            height: 530px;
+        }
+
+        .item-group1 {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            border: 3px solid gold;
+        }
+
+        .item-group1 .item {
+            width: 300px;
+            height: 100%;
+            position: absolute;
+            border-radius: 30px;
+            transition: left 0.3s;
+        }
+
+        .item-group1 .item>div {
+            padding-left: 20px;
+        }
+
+        .item-group1 .item img {
+            border-radius: 30px;
+            display: block;
+            width: 100%;
+        }
+
+        .item-group1 .item .item-title {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            padding-bottom: 30px;
+            padding-top: 40px;
+        }
+
+        .item-group1 .item .price {
+            font-weight: 500;
+            font-family: 'Do Hyeon', sans-serif;
+            padding-bottom: 20px;
+            padding-right: 20px;
+            font-size: 18px;
+        }
+
+        .item-group1 .item .detail-box {
+            /*    font-family: 'Nanum Gothic', sans-serif;*/
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 13px;
+            color: #6c6c6c;
+        }
+
+        .item-group1 .item .detail-box .detail {
+            padding-bottom: 10px;
+        }
+
+        .item-group1 .item .detail-box .detail2 {}
+
+        .item-group1 .item .btn-box {
+            font-family: 'Nanum Gothic', sans-serif;
+            padding-top: 20px;
+        }
+
+        .item-group1 .item .btn-box .btn {
+            width: 100px;
+            height: 35px;
+        }
+
+        .item-group1 .item .btn-box .btn1 {
+            background: #6f4a8e;
+            color: white;
+            margin-bottom: 5px;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+
+        .item-group1 .item .btn-box .btn2 {
+            background: white;
+            color: #6f4a8e;
+            font-size: 13px;
+        }
+
+        .arrow{
+            z-index: 100;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+
+        .arrow img{
+            cursor: pointer;
+            height: 56px;
+        }
+
+        .arrow .left{
+            position: absolute;
+            left: 50px;
+            top: -26px;
+        }
+
+        .arrow .right{
+            position: absolute;
+            right: 70px;
+            top: -26px;
+        }
+        
+        /*총6개의 아이템 자연스러우려면 *2해서 총12개 나열*/
+        /*액티브되는 부분 바로 앞, 뒤까지는 트랜지션 적용*/
+        .item:nth-child(1){left: -300px;opacity: 0.1;}
+        .item:nth-child(2){left: -300px;opacity: 0.1;}
+        .item:nth-child(3){left: -300px;opacity: 0.1;}
+        .item:nth-child(4){left: -300px;}
+        /*        액티브 될 부분*/
+        .item:nth-child(5){left: 20px;}
+        .item:nth-child(6){left: 340px;}       
+        .item:nth-child(7){left: 660px;}
+        .item:nth-child(8){left: 980px;}
+        /*        액티브 끝*/
+        .item:nth-child(9){left: 1300px;}
+        .item:nth-child(10){left: 1300px;opacity: 0.1;}
+        .item:nth-child(11){left: 1300px;opacity: 0.1;}
+        .item:nth-child(12){left: 1300px;opacity: 0.1;}
+        
+    </style>
+</head>
+
+<body>
+    <div class="arrow">
+        <img src="img/right.png" class="right right-btn">
+        <img src="img/left.png" class="left left-btn">
+    </div>
+    <div class="mat-wrap">
+        <div class="item-group1">
+            <div class="item item1">
+                <img src="img/mat1.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2 btn-wh">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item2">
+                <img src="img/mat2.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item3">
+                <img src="img/mat5.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item4">
+                <img src="img/mat4.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item5">
+                <img src="img/mat3.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item6">
+                <img src="img/mat6.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item7">
+                <img src="img/mat1.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2 btn-wh">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item8">
+                <img src="img/mat2.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item9">
+                <img src="img/mat5.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item10">
+                <img src="img/mat4.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item11">
+                <img src="img/mat3.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="item item12">
+                <img src="img/mat6.png">
+                <div class="item-title">뷰티레스트 뷰티레스트</div>
+                <div class="price">￦1,000,000</div>
+                <div class="detail-box">
+                    <p class="detail detail1">G CLASS</p>
+                    <p class="detail detail2">보다 강화된 지지력의 레귤러 타입 매트리스</p>
+                    <p class="detail detail3">원단:자가드원단 외</p>
+                    <p class="detail detail4">스프링:NTS Pocket Spring 시스템</p>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn1">구입하기</div>
+                    <div class="btn btn2">더 알아보기<i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var timer=setInterval(aa,2000)
+    
+    $(".item").mouseenter(function(){
+        clearInterval(timer)
+    })
+    $(".item").mouseleave(function(){
+        timer=setInterval(aa,2000)
+    })
+
+    $(".right-btn").click(function(){
+        clearInterval(timer)
+        aa();
+        timer=setInterval(aa,2000)
+    })
+    
+    $(".left-btn").click(function(){
+        clearInterval(timer)
+        $(".item").last().prependTo(".item-group1") 
+        timer=setInterval(aa,2000)
+    })
+    
+    
+    //함수만들기
+    function aa(){
+        $(".item").first().appendTo(".item-group1")
+    }
+    
+    
+    
+</script>

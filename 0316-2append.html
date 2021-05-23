@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .box {
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #dddddd;
+        }
+
+        .box .item {
+            margin: 2px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+
+        .box .item1 {background-color: red;}
+
+        .box .item2 {background-color: #ff5800;}
+
+        .box .item3 {background-color: #ffeb00;}
+
+        .box .item4 {background-color: #22901d;}
+
+        .box .item5 {background-color: #1d00ff;}
+
+        .box .item6 {background-color: #292153;}
+
+        .box .item7 {background-color: #8b41b9;}
+        button{
+            padding: 8px 20px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="a-btn">append btn</button>
+    <div class="box">
+        <div class="item item1">item1 빨강</div>
+        <div class="item item2">item2 주</div>
+        <div class="item item3">item3 노</div>
+        <div class="item item4">item4 초</div>
+        <div class="item item5">item5 파</div>
+        <div class="item item6">item6 남</div>
+        <div class="item item7">item7 보</div>
+    </div>
+</body></html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    
+    $(".a-btn").click(function(){
+        $(".item").first().appendTo(".box") 
+    // 첫번째 아이템을 박스안에서 맨뒤로 보내는것 firt대신 eq(0)써도되
+    })
+    
+    
+    
+</script>

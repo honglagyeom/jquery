@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0; padding:0;position:relative;}
+        .main{width:100%;}
+        .main .section{width:100%; height:100vh;}
+        .section1{background-color:palevioletred}
+        .section2{background-color:#80bcbc}
+        .section3{background-color:#646488}
+        .section4{background-color:#ffc1b6}
+        .btn-group{position:fixed; top:0; left:0;z-index:100;}
+        .btn{border:1px solid black;padding:20px;cursor:pointer}
+    </style>
+</head>
+<body>
+    <div class="btn-group">
+        <div class="btn">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="name">name1</span>
+        </div>
+        <div class="btn">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="name">name2</span>
+        </div>
+        <div class="btn">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="name">name3</span>
+        </div>
+        <div class="btn">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="name">name4</span>
+        </div>
+    </div>
+    <div class="main">
+        <section class="section section1">1</section>
+        <section class="section section2">2</section>
+        <section class="section section3">3</section>
+        <section class="section section4">4</section>
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    //set/get
+    //세로 스크롤 세팅: scrollTop(값), 세로스크롤 값구하기:scrollTop()
+    //너비값 세팅:width(값)/ 너비값 얻기: width()
+    //높이값 세팅:height(값)/높이값 얻기:height()
+
+    btn_width=$(".btn").width()
+    win_width=$(window).width();
+    win_height=$(window).height();
+    console.log("버튼너비:"+btn_width)
+    console.log("윈도우 너비:"+win_width)
+    console.log("윈도우 높이:"+win_height)
+
+$(".btn").click(function(){
+	i           = $(this).index();
+	win_height  = $(window).height();
+
+	console.log( i+"*"+win_height+"="+(win_height*i)  );
+	$("html").stop().animate({scrollTop:win_height*i })
+})
+</script>

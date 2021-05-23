@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="animate.css">
+    <title>Document</title>
+    <style>
+        .text-animate{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-animate">
+        글씨가 애니메이션되도록 만들기
+        
+        
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="jquery.lettering.js"></script>
+<script src="jquery.textillate.js"></script>
+<script>
+    //기본값 $(".text-animate").textillate()
+    
+    
+    $(".text-animate").textillate({
+        initialDelay: 1000, //최초 뜨기전 지연시간 
+        loop:true,
+        in: {
+            effect: "fadeIn",
+            delay:30, //글씨 하나당 지연 시간
+            //delayScale:2.5,
+            //reverse:true,
+            callback: function(){
+                $(".text-animate").css({border:"1px solid gold"})
+            } //콜백은 애니메이션끝나고 바로 실행되는 기능
+        },
+        out : {
+            effect: "hinge",
+            shuffle:true
+        }
+    })
+    
+    $(".text-animate").click(function(){
+        console.log("S")
+        $(".text-animate").textillate("out")
+    })
+</script>

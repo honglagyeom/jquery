@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            text-align: center;
+        }
+        button{
+            padding: 8px 20px;
+            text-transform: uppercase;
+        }
+
+        .box {
+/*            overflow: hidden;*/
+            width: 680px;
+            height: 240px;
+            margin: 20px auto;
+            border: 1px solid #000000;
+        }
+
+        .box .item {
+            transition: left 0.3s;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .box .item1 {background-color: red;}
+
+        .box .item2 {background-color: #ff5800;}
+
+        .box .item3 {background-color: #ffeb00;}
+
+        .box .item4 {background-color: #22901d;}
+
+        .box .item5 {background-color: #1d00ff;}
+
+        .box .item6 {background-color: #292153;}
+
+        .box .item7 {background-color: #8b41b9;}
+
+/*        액티브되는 부분 바로 앞, 뒤까지는 트랜지션 적용*/
+        .item:nth-child(1){left: -200px; opacity: 0.1;}
+        .item:nth-child(2){left: -200px;}
+        /*        액티브되는 부분*/
+        .item:nth-child(3){left: 20px;}
+        .item:nth-child(4){left: 240px;}
+        .item:nth-child(5){left: 460px;}
+        /*        액티브 끝*/
+        .item:nth-child(6){left: 680px;}
+        .item:nth-child(7){left: 680px; opacity: 0.1;}
+
+        /*  여기에 컨테이너에 너비줘서 overflow:hidden하면 캐러샐슬라이드 되는 것*/
+    </style>
+</head>
+<body>
+    <button class="b-btn">prepend btn</button>
+    <button class="a-btn">append btn</button>
+    <div class="box">
+        <div class="item item1">item1 빨강</div>
+        <div class="item item2">item2 주</div>
+        <div class="item item3">item3 노</div>
+        <div class="item item4">item4 초</div>
+        <div class="item item5">item5 파</div>
+        <div class="item item6">item6 남</div>
+        <div class="item item7">item7 보</div>
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    //꼭 setInterval이름 달고 변수선언 필수!
+    var timer=setInterval(_left,1000)
+    
+    //박스위에 마우스 올렸을 때 멈추게
+    $(".box").mouseenter(function(){
+        clearInterval(timer)
+    })
+    $(".box").mouseleave(function(){
+        timer=setInterval(_left,1000)
+    })
+    
+    //버튼 클릭했을 때 우측 좌측으로 움직이게
+    $(".b-btn").click(function(){
+        clearInterval(timer)
+        $(".item").last().prependTo(".box")  //prependTo맨앞으로
+    })
+    
+    $(".a-btn").click(function(){
+        clearInterval(timer) //클릭했을때 인터벌적용안되도록
+        _left() //appendTo 맨뒤로
+        timer=setInterval(_left,1000) //다시 실행되도록
+        
+      //aa=setTimeout(function(){
+      //  console.log("a")
+      //  timer=setInterval(_left,1000)
+      //},3000)                       //3초뒤에 실행되도록       
+    })
+
+    //함수만들기
+    function _left(){
+        $(".item").first().appendTo(".box") 
+        //appendTo 맨뒤로
+    }
+
+
+
+</script>

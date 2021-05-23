@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0; margin:0;position:relative;}
+        .btn-group{position:fixed; top:0; right:0;z-index:999;}
+        .btn{width:50px;height:50px; display:block; border:1px solid black;cursor:pointer;}
+        .main{}
+        .section{width:100%; height:100vh;display:flex; align-items:center; justify-content:center;}
+        .section:nth-child(1){background:#ffc1b6}
+        .section:nth-child(2){background:#646488}
+        .section:nth-child(3){background:#d2d2d2}
+        .section:nth-child(4){background:#f88f01}
+        .section:nth-child(5){background:#80bcbc}
+        .section h1{text-transform:uppercase;
+            font-size:100px;opacity:0.1;}
+    </style>
+</head>
+<body>
+<div class="btn-group">
+    <span class="btn">01</span>
+    <span class="btn">02</span>
+    <span class="btn">03</span>
+    <span class="btn">04</span>
+    <span class="btn">05</span>
+</div>
+<div class="main">
+    <section class="section"><h1>page1</h1></section>
+    <section class="section"><h1>page2</h1></section>
+    <section class="section"><h1>page3</h1></section>
+    <section class="section"><h1>page4</h1></section>
+    <section class="section"><h1>page5</h1></section>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    //이벤트종류:
+    // 1-문서가 시작했을때                $(document).ready()
+    // 2-클릭했을때                       $("요소").click()
+    // 3-마우스가 올라갈때                $("요소").mouseenter()
+    // 4-마우스가 내려갈때                $("요소").mouseleave()
+    // 5-마우스가 움직일때                $(window).mousemove()
+    // 6-스크롤이 움직일때                $(window).scroll()
+    // 7-휠이 움직일때                    $(window).on("mousewheel" , function( event ){ statement })
+    // 8-브라우저사이즈가 조절되었을때    $(window).resize()
+
+
+$(".btn").click(function(){
+	i=$(this).index();
+	h=$(window).height();
+	console.log(i);
+	console.log(h);
+	$("html").stop().animate({scrollTop:i*h},1000,function(){
+		$(".section").eq(i).find("h1").stop().animate({opacity:1})
+        $(".section").not( $(".section").eq(i) ).find("h1").css({opacity:0})
+    })
+})
+</script>

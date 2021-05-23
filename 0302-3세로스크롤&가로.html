@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; position: relative;}
+        body{
+            height: 5000px;
+        }
+        .bg{
+            position: fixed;/*두개겹치기 앱솔루트도 마찬가지*/
+            top:0;
+            left: 0;
+            width:100%;
+            height: 100vh;
+        } 
+        .bg1{background-image: url(bg1.png);}
+        .bg2{background-image: url(bg2.png);}
+        .box{
+            position: fixed;
+            top:100px;
+            left: 0;
+            height: 100px;
+            width: 5000px;
+            background-image: linear-gradient(90deg,red,yellow,green,blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="box">fixed</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(window).scroll(function(){
+        scr_top = $(window).scrollTop();
+        console.log(scr_top)
+        $(".bg1").css({backgroundPositionY:-scr_top}) //+,-방향정하기
+        $(".bg2").css({backgroundPositionX:-scr_top})
+        $(".box").css({left:-scr_top}) //배경이 스크롤따라 옆으로움직
+        
+    })
+    
+    
+    
+</script>
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,
+Shiny Addict400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+
+		*{padding:0; margin:0; position:relative;}
+		body{font-family:"Lato", sans-serif;}
+		img{display:block;}
+		::selection{background:pink; color:white;}
+		/*상단*/
+		.header{position:fixed;z-index:100;}
+		.header .logo{
+			position:fixed;left:20px; top:20px; }
+		.header .logo img{width:150px;}
+		.header .icon-group{position:fixed; right:20px; top:20px;}
+		.header i{margin:5px;}
+		/*인디케이터*/
+		.indicator{position:fixed;left:0; top:calc(50% - 120px);
+			z-index:101;
+			width:200px;height:240px;}
+		.indicator .btn{width:100%; border-top:1px solid #333333;
+			height:50px; text-align:right; font-size:18px;font-weight:900;
+			padding-top:5px;color:#444444;}
+		.indicator .btn1{}
+		.indicator .btn2{}
+		.indicator .btn3{}
+		.indicator .btn4{}
+		/*main*/
+		.main{width:100%;}
+		.main .section{width:100%; height:100vh;overflow:hidden}
+		.main .section .text-group{position:absolute;left:350px; top:50%;width:calc(50% - 400px);
+			transform:translate(0, -50%)}
+		.main .section .text-group h1{
+			font-size:50px;font-weight:900;text-transform:uppercase;}
+		.main .section .text-group p{color:#666666; line-height:25px;}
+		.main .section .img-group{ position:absolute;
+		width:100%; height:100%; left:0; top:0;
+		}
+		.main .section .img-group .img{ position:absolute;}
+		.section1 h1{color:#d4164c;}
+		.section2 h1{color:white}
+		.section3 h1{color:white}
+		.section4 h1{color:#005a89}
+		.main .section1{
+			background-image:url(03img/bg1.jpg);
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-position:center center;
+		}
+		.main .section2{
+			background-image:url(03img/bg2.jpg);
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-position:center center;}
+		.main .section3{
+			background-image:url(03img/bg3.jpg);
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-position:center center;}
+		.main .section4{
+			background-image:url(03img/bg4.jpg);
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-position:center center;}
+		/*이미지move*/
+		.section .img{border:1px solid red;}
+		.section1 .img1{top:50px; left:200px;}
+		.section1 .img2{right:50px; bottom:50px}
+		.section1 .img3{bottom:200px;left:400px;}
+
+		.section2 .img{}
+		.section2 .img1{left:50px; top:50px;}
+		.section2 .img2{right:0; bottom:0}
+
+		.section3 .img{}
+		.section3 .img1{left:400px;bottom:100px;}
+		.section3 .img2{left:300px; top:100px;}
+		.section3 .img3{right:0; bottom:0}
+
+		.section4 .img{}
+		.section4 .img1{left:200px;top:100px;}
+		.section4 .img2{right:20px; bottom:20px;}
+
+		/*버튼 액티브되었을때*/
+		.btn{transition:0.5s;}
+		.btn.active{font-size:25px;}
+		.btn1.active{color:#d4164c; border-color:#d4164c}
+		.btn2.active{color:white; border-color:white;}
+		.btn3.active{color:#ffec6a; border-color:#ffec6a}
+		.btn4.active{color:#005a89; border-color:#005a89;}
+	</style>
+</head>
+<body>
+<!--상단-->
+<div class="header">
+	<div class="logo"><img src="03img/logo.png" alt=""></div>
+	<div class="icon-group">
+		<i class="fab fa-twitter"></i>
+		<i class="fab fa-facebook"></i>
+		<i class="fas fa-heart"></i>
+	</div>
+</div>
+<!--인디케이터-->
+<nav class="indicator">
+	<div class="btn btn1">Full Blossome</div>
+	<div class="btn btn2">Be Colorful</div>
+	<div class="btn btn3">Time on Board</div>
+	<div class="btn btn4 ">Shiny Addict</div>
+</nav>
+
+<!--메인이미지-->
+<div class="main">
+	<section class="section section1">
+		<div class="text-group">
+			<h1>Full Blossome</h1>
+			<p>Lorem Ipsum is simply dummy text </p>
+		</div>
+		<div class="img-group">
+			<img src="03img/obj11.png" class="img img1" alt="">
+			<img src="03img/obj12.png" class="img img2" alt="">
+			<img src="03img/obj13.png" class="img img3" alt="">
+		</div>
+	</section>
+	<section class="section section2">
+		<div class="text-group">
+			<h1>Be Colorful</h1>
+			<p>Lorem Ipsum is simpl a type specimen book.</p>
+		</div>
+		<div class="img-group">
+			<img src="03img/obj21.png" class="img img1">
+			<img src="03img/obj22.png" class="img img2">
+		</div>
+	</section>
+	<section class="section section3">
+		<div class="text-group">
+			<h1>Time on Board</h1>
+			<p>Lorem Ipsum is simplya type specimen book.</p>
+		</div>
+		<div class="img-group">
+			<img src="03img/obj31.png" class="img img1">
+			<img src="03img/obj32.png" class="img img2">
+			<img src="03img/obj33.png" class="img img3">
+		</div>
+	</section>
+	<section class="section section4">
+		<div class="text-group">
+			<h1>Shiny Addict</h1>
+			<p>Lorem Ipsum is simply dumype specimen book.</p>
+		</div>
+		<div class="img-group">
+			<img src="03img/obj41.png" class="img img1">
+			<img src="03img/obj42.png" class="img img2">
+		</div>
+	</section>
+</div>
+
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/easing.js"></script>
+<script>
+	var page_num=3;
+	var win_height=$(window).height();
+
+	page_action();
+
+	//버튼을 클릭했을때
+	$(".btn").click(function(){
+		page_num=$(this).index();
+		page_action();
+	})
+	$(window).resize(function(){
+		page_action();
+	})
+
+	function page_action(){
+		win_height=$(window).height();
+		$(".btn").eq(page_num).addClass("active");
+		$(".btn").not($(".btn").eq(page_num)).removeClass("active");
+		$("html").stop().animate({scrollTop:win_height*page_num},1000);
+	}
+	//휠(스크롤)이벤트
+	$("*").on("mousewheel",function(event){
+		event.preventDefault();//기본이벤트 제거.
+		delta=event.originalEvent.wheelDelta;//휠 위로굴릴때, 아래로 굴릴때 값
+		img=$("html").is(":animated");
+		//console.log("휠값:"+delta)
+		//console.log("애니메이션중?"+img)
+		//조건:애니메이션중 아닐때 and 휠을 아래로 굴릴때 and page_num<3
+		if(!img && delta<0 && page_num<3){
+			page_num++;
+			page_action()
+		} else if(!img && delta>0 && page_num>0){
+			page_num--;
+			page_action()
+		}
+		console.log("page_num:"+page_num);
+	})
+/////마우스가 움직였을때
+	$(window).mousemove(function(event){
+		_x=event.clientX;
+		_y=event.clientY;
+		//console.log("X:"+_x+ ", Y:"+_y);
+
+		$(".section1 .img1").css({left:200-(_x/20),top:50-(_y/20)});
+		$(".section1 .img2").css({right:50-(_x/15),bottom:50-(_y/30)});
+		$(".section1 .img3").css({left:400-(_x/30),bottom:200-(_y/25)});
+
+		$(".section2 .img1").css({left:50-(_x/30),top:50-(_y/25)});
+		$(".section2 .img2").css({right:0-(_x/30),bottom:0-(_y/25)});
+
+		$(".section3 .img1").css({left:400-(_x/30),bottom:100-(_y/25)});
+		$(".section3 .img2").css({left:300-(_x/30),top:100-(_y/25)});
+		$(".section3 .img3").css({right:0-(_x/30),bottom:0-(_y/25)});
+
+		$(".section4 .img1").css({left:200-(_x/30),top:200-(_y/25)});
+		$(".section4 .img2").css({right:20-(_x/30),bottom:120-(_y/25)});
+
+
+
+
+
+	})
+</script>

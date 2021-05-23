@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{position:relative; margin:0; padding:0;list-style:none}
+        body{height:5000px; background-image:linear-gradient(orangered,gold,skyblue,palevioletred)}
+        header{
+            position:fixed;top:0; left:0;
+            width:100%; height:100px;
+            background:black;
+            transition:0.5s;
+        }
+        header .logo{text-align:center; font-size:50px;line-height:70px;color:gold;}
+        header .menu{margin:auto; display:flex;justify-content:center;}
+        header .menu li{color:white;margin:0 20px;}
+        .top-btn{width:50px; height:50px;
+            position:fixed;background:black;color:white;
+            right:10px;bottom:20px;text-align:center;line-height:45px;font-size:30px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">WEB DESIGN</div>
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu1</li>
+        <li>menu1</li>
+        <li>menu1</li>
+        <li>menu1</li>
+    </ul>
+</header>
+
+<div class="top-btn">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+//시작하자마자
+aa();//기능을 사용하는 함수이름을 호출
+
+///스크롤이 움직일때
+$(window).scroll(function(){
+	aa()
+})
+
+$(".top-btn").click(function(){
+	$("html").stop().animate({scrollTop:0},1000)
+})
+//스크롤에따라 해더 탑값.조절.
+function aa(){
+	scr_top=$(window).scrollTop()
+	console.log("스크롤:"+scr_top);
+	if(scr_top>100){
+		$("header").css({top:"-65px"});
+		$(".top-btn").stop().fadeIn();
+	}else{
+		$("header").css({top:0});
+		$(".top-btn").stop().fadeOut()
+	}
+}
+</script>

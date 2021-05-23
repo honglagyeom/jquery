@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Document</title>
+    <link rel="stylesheet" href="flexslider.css">
+    <style>
+        *{position: relative; padding: 0; margin: 0;}
+        .flexslider{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="flexslider carousel">
+        <ul class="slides">
+            <li><img src="img/item1.jpg"></li>
+            <li><img src="img/item2.jpg"></li>
+            <li><img src="img/item3.jpg"></li>
+            <li><img src="img/item1.jpg"></li>
+            <li><img src="img/item2.jpg"></li>
+            <li><img src="img/item3.jpg"></li>
+            <li><img src="img/item1.jpg"></li>
+            <li><img src="img/item2.jpg"></li>
+            <li><img src="img/item3.jpg"></li>
+            <li><img src="img/item1.jpg"></li>
+            <li><img src="img/item2.jpg"></li>
+            <li><img src="img/item1.jpg"></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="jquery.flexslider.js"></script>
+<script src="easing.js"></script>
+<script>
+    
+    $('.flexslider').flexslider({
+        slideshowSpeed:1000, //인터벌 간격속도
+        animationSpeed:600,
+        animation:"slide",
+        animationLoop: false, //true무한반복 ,false는 한번만
+        itemWidth: 300, //img너비
+        itemMargin: 5
+    })
+    
+</script>

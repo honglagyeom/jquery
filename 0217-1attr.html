@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; position: relative;}
+    </style>
+</head>
+<body>
+    <header>
+        <button class="btn btn1">전체보기</button>
+        <button class="btn btn2">영화</button>
+        <button class="btn btn3">꽃</button>
+        <button class="btn btn4">아기</button>
+    </header>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+//get
+    a=$(".btn").css("color");
+    console.log("폰트컬러:"+a)
+    
+    b=$(".btn4").attr("class"); //btn4의 클래스명 불러오기 attr
+    console.log("버튼4의 클래스명:"+b);
+    $(".btn2").attr("class","Cccc") //클래스명 바꾸는 방법 elements에서확인
+    
+    c=$(".btn1").width();
+    console.log("버튼1의 너비값:"+c);
+    
+    $(".btn4").width(100);
+    
+    d=$(".btn2").text();
+    console.log("버튼2의 텍스트값"+d); //위에 클래스명바꿔서 값이 안나옴
+    
+    $(".btn4").text("baby")
+</script>

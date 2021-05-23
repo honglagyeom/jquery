@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">박스</div>
+    <div class="box1">박스1</div>
+</body></html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/jquery.animate-colors.js"></script> 
+<script src="js/transform2d.js"></script>
+<script>
+    //애니메이트를 사용해서 가속도(easing), 색상추가하려면 플러그인 연결
+    $(".box").stop().animate({width:1000,height:50},5000)
+    $(".box1").click(function(){
+        $(".box1").stop().animate({width:1000,height:40,backgroundColor:"#ff3300"},5000,"easeOutElastic")
+    })
+
+</script>

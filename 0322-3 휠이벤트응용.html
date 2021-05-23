@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+
+        .left_section {
+            overflow: hidden;
+            height: 100%;
+            width: 20%;
+            border: 5px solid black;
+            box-sizing: border-box;
+        }
+        
+
+        .right_section {
+            overflow: hidden;
+            height: 100%;
+            width: 80%;
+            border: 5px solid black;
+            box-sizing: border-box;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 100px;
+            color: white;
+        }
+
+       .page1 {
+            background-color: #9a0e0e;
+        }
+
+       .page2 {
+            background-color: orange;
+        }
+
+       .page3 {
+            background-color: yellow;
+        }
+
+       .page4 {
+            background-color: green;
+        }
+
+       .page5 {
+            background-color: #2828b1;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="left_section">
+            <div class="page page1">1/5</div>
+            <div class="page page2">2/5</div>
+            <div class="page page3">3/5</div>
+            <div class="page page4">4/5</div>
+            <div class="page page5">5/5</div>
+        </div>
+        <div class="right_section">
+            <div class="page page1">1/5</div>
+            <div class="page page2">2/5</div>
+            <div class="page page3">3/5</div>
+            <div class="page page4">4/5</div>
+            <div class="page page5">5/5</div>
+        </div>
+
+    </section>
+
+</body></html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var page_num, active_right, active_left
+    page_num=0
+    aa()
+    
+    $("section").on("mousewheel DOMMouseScroll",function(event){
+        event.preventDefault();
+        delta= event.originalEvent.wheelDelta;
+        console.log(delta)
+        page_move= $(".page").is(":animated")
+        
+        if (!page_move && delta<0 && page_num<4){
+            page_num++;
+            aa()
+        } else if(!page_move && delta>0 && page_num>0){
+            page_num--;
+            aa()
+        }
+        $(".page").text(page_num+1+"/"+"5")
+    })
+    
+   
+    function aa(){
+    active_right= $(".left_section .page").eq(page_num) 
+    active_left=  $(".right_section .page").eq(page_num) 
+    
+    active_right.stop().animate({top:0})
+    active_right.nextAll().stop().animate({top:100+"%"})
+    active_right.prevAll().stop().animate({top:-100+"%"})
+    
+    active_left.stop().animate({top:0})
+    active_left.nextAll().stop().animate({top:-100+"%"})
+    active_left.prevAll().stop().animate({top:100+"%"})
+    }
+    
+    $(".page").text(page_num+1+"/"+"5")
+
+</script>

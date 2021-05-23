@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		*{position:relative;padding:0;margin:0;
+			font-family:"Noto Sans KR", sans-serif;
+		}
+		section{
+			background-color:#eeeeee;
+			border:1px solid black;margin:10px auto;
+			width:1120px;height:240px;
+		}
+		section .btn-box{position:absolute;
+			z-index:10;
+			top:50%;left:0;width:100%;}
+		section .btn-box .btn{
+			position:absolute;top:-25px;
+			width:50px; height:50px;}
+		section .btn-box .btn1{right:100%;}
+		section .btn-box .btn2{left:100%}
+		section .img-box{width:100%;top:20px;}
+		section .item{
+			position:absolute;top:0px;
+			width:200px;height:200px;
+			font-size:40px;font-weight:900;color:white;
+			display:flex;align-items:center;justify-content:center;
+			transition:0.3s;
+		}
+		section .item1{ background-color:darkred}
+		section .item2{ background-color:orangered}
+		section .item3{ background-color:gold}
+		section .item4{ background-color:forestgreen}
+		section .item5{ background-color:cornflowerblue}
+		section .item6{ background-color:navy}
+		section .item7{ background-color:mediumvioletred}
+		section .item:nth-child(1){left:-200px;opacity:0}
+		section .item:nth-child(2){left:-200px;opacity:0}
+		section .item:nth-child(3){left:-200px;opacity:0}
+		section .item:nth-child(4){left:-200px;}
+		section .item:nth-child(5){left:20px;}
+		section .item:nth-child(6){left:240px;}
+		section .item:nth-child(7){left:460px;}
+		section .item:nth-child(8){left:680px;}
+		section .item:nth-child(9){left:900px;}
+		section .item:nth-child(10){left:1120px;}
+		section .item:nth-child(11){left:1120px;opacity:0}
+		section .item:nth-child(12){left:1120px;opacity:0}
+		section .item:nth-child(13){left:1120px;opacity:0}
+		section .item:nth-child(14){left:1120px;opacity:0}
+
+	</style>
+</head>
+<body>
+<section class="slider">
+	<div class="btn-box">
+		<button class="btn btn1" data-dir="l"> ◀</button>
+		<button class="btn btn2" data-dir="r"> ▶</button>
+	</div>
+	<div class="img-box">
+		<div class="item item1">RED</div>
+		<div class="item item2">ORANGE</div>
+		<div class="item item3">YELLOW</div>
+		<div class="item item4">GREEN</div>
+		<div class="item item5">BLUE</div>
+		<div class="item item6">NAVY</div>
+		<div class="item item7">VIOLET</div>
+		<div class="item item1">RED</div>
+		<div class="item item2">ORANGE</div>
+		<div class="item item3">YELLOW</div>
+		<div class="item item4">GREEN</div>
+		<div class="item item5">BLUE</div>
+		<div class="item item6">NAVY</div>
+		<div class="item item7">VIOLET</div>
+	</div>
+</section>
+
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	//setInterval(함수,시간,매개변수..)
+	//setTimeout(함수,딜레이시간,매개변수...)
+	/*
+	$(".btn1").click(function(){
+		$(".item").first().appendTo(".img-box")
+	})
+	$(".btn2").click(function(){
+		$(".item").last().prependTo(".img-box")
+	})
+	*/
+	var dir="r";
+	var timer=setInterval( move , 500 , dir );//초기값
+	var delay_timer;
+	$(".btn").click(function(){
+		dir=$(this).attr("data-dir")
+		console.log(dir);
+		clearInterval(timer);
+		clearTimeout(delay_timer);
+		move(dir)
+		delay_timer=setTimeout(function(){
+			timer=setInterval( move , 500 , dir )
+		},3000)
+	})
+	function move(dir){
+		if(dir=="l"){
+			$(".item").first().appendTo(".img-box")
+		} else if(dir=="r"){
+			$(".item").last().prependTo(".img-box")
+		}
+	}
+
+	$(".slider").mouseenter(function(){
+		clearInterval(timer)
+	})
+	$(".slider").mouseleave(function(){
+		clearInterval(timer);
+		clearTimeout(delay_timer);
+		delay_timer=setTimeout(function(){
+			timer=setInterval(move,500,dir)
+		},3000)
+	})
+</script>

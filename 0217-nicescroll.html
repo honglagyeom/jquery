@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0; position: relative;}
+        header{text-align: center; margin-top: 30px;} 
+        .container{
+            width: 1000px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 10px;
+        }
+        .container img{ 
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 20px;}
+        .btn{
+            outline: none;
+            background: #8db6d9;
+            box-shadow: 0 0 3px rgba(0,0,0,0.5);
+            color: white;
+            width: 100px;
+            height: 50px;
+            border: none;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        
+        /**/
+        .popup-group{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 10;
+            display: none;
+        }
+        .popup-group .black{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+        .popup-group .img-box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+        .popup-group .img-box img{}
+        
+    </style>
+</head>
+<body>
+   <div class="popup-group">
+       <div class="black"></div>
+       <div class="img-box">
+           <img src="b_img/1.png" class="img">
+       </div>
+   </div>
+   
+    <header>
+        <button class="btn btn1" data-name="item">전체보기</button>
+        <button class="btn btn2" data-name="movie">영화</button>
+        <button class="btn btn3" data-name="flower">꽃</button>
+        <button class="btn btn4" data-name="baby">아기</button>
+        <button class="btn btn5" data-name="love">사랑</button>
+    </header>
+    <div class="container">
+        <div class="item love"><img src="s_img/0.gif"></div>
+        <div class="item flower"><img src="s_img/1.gif"></div>
+        <div class="item movie"><img src="s_img/2.gif"></div>
+        <div class="item love"><img src="s_img/3.gif"></div>
+        <div class="item baby"><img src="s_img/4.gif"></div>
+        <div class="item flower"><img src="s_img/5.gif"></div>
+        <div class="item movie"><img src="s_img/6.gif"></div>
+        <div class="item movie"><img src="s_img/7.gif"></div>
+        <div class="item baby"><img src="s_img/8.gif"></div>
+        <div class="item love"><img src="s_img/9.gif"></div>
+        <div class="item movie"><img src="s_img/10.gif"></div>
+        <div class="item flower"><img src="s_img/11.gif"></div>
+        <div class="item baby"><img src="s_img/12.gif"></div>
+        <div class="item movie"><img src="s_img/13.gif"></div>
+        <div class="item love"><img src="s_img/14.gif"></div>
+        <div class="item movie"><img src="s_img/15.gif"></div>
+        <div class="item baby"><img src="s_img/16.gif"></div>
+        <div class="item love"><img src="s_img/17.gif"></div>
+        <div class="item love"><img src="s_img/18.gif"></div>
+        <div class="item flower"><img src="s_img/20.gif"></div>
+        <div class="item baby"><img src="s_img/22.gif"></div>
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script>
+    
+    $("body").niceScroll();//body에 함수 실행
+    
+    $(".btn").click(function(){
+        name=$(this).attr("data-name");
+        console.log(name);
+        $(".item").hide(); //클라스아이템은 안보이게 display:none
+        $("."+name).show(); //클라스+date-name은 보이게. display:block
+    })
+    
+    $(".item").click(function(){
+        i=$(this).index();
+        console.log(i);
+        $(".img").attr("src","b_img/"+i+".png");
+        $(".popup-group").stop().fadeIn();
+        $("body").css({overflow:"hidden"})
+    })
+    $(".img-box").click(function(){
+        $(".popup-group").stop().fadeOut();
+        //$("body").css({overflow:"auto"})
+    })
+    
+</script>

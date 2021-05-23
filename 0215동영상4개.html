@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0; margin:0; position:relative;}
+        .vod_wrap{display:grid;width:800px;margin:20px auto;
+        grid-template-columns:390px 390px;
+        grid-template-rows:390px 390px;
+        grid-gap:20px;}
+        .item{overflow:hidden; filter:brightness(0.5) grayscale(1); transition:0.5s}
+        .item video{min-width:100%; min-height:100%;}
+        .item:hover{filter:brightness(1) grayscale(0);}
+    </style>
+</head>
+<body>
+<div class="vod_wrap">
+    <div class="item item1"><video src="vid1.mp4" id="vod0" muted></video></div>
+    <div class="item item2"><video src="vid2.mp4" id="vod1" muted></video></div>
+    <div class="item item3"><video src="vid3.mp4" id="vod2" muted></video></div>
+    <div class="item item4"><video src="vid4.mp4" id="vod3" muted></video></div>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(".item").mouseenter(function(){
+	i=$(this).index();
+	console.log("enter순번:"+i);
+	vod=document.getElementById("vod"+i)
+    vod.currentTime=0;
+	vod.play()
+})
+$(".item").mouseleave(function(){
+	i=$(this).index();
+	console.log("leave순번:"+i);
+	document.getElementById("vod"+i).pause()
+})
+
+
+
+
+
+</script>

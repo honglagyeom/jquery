@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding: 0; margin: 0; position: relative;}
+		.section1{width: 100%; height: 800px; background-color: #eec0ff;}
+		.section-sns{
+			border: 1px solid black;
+			width: calc(100% - 60px);
+			max-width: 1400px;
+			margin: 20px auto;
+/*			다 만들고 overflow: hidden;*/
+			overflow: hidden;
+		}
+		footer{height: 100px;}
+		.item{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+		}
+		.item1,.item5{background-color: lightgreen;}
+		.item2,.item4, .item6{background-color: #90a2ee;}
+		.item3, .item7{background-color: #90eedc;}
+		
+	</style>
+</head>
+<body>
+	<section class="section1">위에 부분</section>
+	<section class="section-sns">
+		<div class="item item1">1</div>
+		<div class="item item2">2</div>
+		<div class="item item3">3</div>
+		<div class="item item4">4</div>
+		<div class="item item5">5</div>
+		<div class="item item6">6</div>
+		<div class="item item7">7</div>
+		<div class="item item1">1</div>
+		<div class="item item2">2</div>
+		<div class="item item3">3</div>
+		<div class="item item4">4</div>
+		<div class="item item5">5</div>
+		<div class="item item6">6</div>
+		<div class="item item7">7</div>
+	</section>
+	<footer>하단카피라이터</footer>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	sns()
+	setInterval(sns_auto,3000)
+	//
+	function sns(){
+		win_width = $(window).width()
+		if(win_width>1200){
+			//윈도우 사이즈에 따라서 col,gap만 바꿔서 설정해주면 됨
+			col=8;
+			gap=20;
+		} else if(win_width>900 && win_width<=1200){
+			col=6
+			gap=15
+		} else if(win_width>400 && win_width<=900){
+			col=3;
+			gap=10
+		}
+		
+		//함수만들 때 밑에꺼 먼저 작성
+		sns_box	  =$(".section-sns");
+		sns_width =sns_box.width();
+		console.log(sns_width)
+		box_size  =(sns_width - (col+1)*gap) / col
+		console.log(box_size)
+		sns_box.height(box_size+gap*2)
+		$(".item").each(function(i){
+			_i=i-3 //3개빼고 그 뒤부터 시작할 수 있도록
+			$(this).stop().animate({
+				width:box_size,
+				height:box_size,
+				top:gap,
+				left:gap+box_size*_i+gap*_i
+			})
+			if(i<=1 || i>=13){ //앞에 2개 뒤에 2개 ||은 or의미
+				$(this).css({opacity:0})
+			} else{
+				$(this).css({opacity:1})
+			}
+		})
+	}
+	
+	function sns_auto(){
+		$(".item").first().appendTo(".section-sns");
+		sns()
+	}
+	
+	var size_timer //변수선언 필수
+	$(window).resize(function(){
+		clearTimeout(size_timer)
+		size_timer = setTimeout(sns,200)
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

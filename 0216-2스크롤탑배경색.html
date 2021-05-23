@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+		*{position:relative;padding:0;margin:0;}
+		body{transition:1s;}
+		.item{
+            width:100%; 
+            height:1000px;
+			font-size:200px;
+            font-weight:900;
+			display:flex;
+            align-items:center;
+            justify-content:center;
+			color:white;
+            text-shadow:0 2px 5px rgba(0, 0, 0, 0.2);
+			border-bottom:1px solid rgba(0, 0, 0, 0.5);
+		}
+    </style>
+</head>
+<body>
+<div class="item item1">RED</div>
+<div class="item item2">ORANGE</div>
+<div class="item item3">YELLOW</div>
+<div class="item item4">GREEN</div>
+<div class="item item5">BLUE</div>
+<div class="item item6">NAVY</div>
+<div class="item item7">VIOLET</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	var win_height=$(window).height();     //브라우저 높이
+	var doc_height=$(document).height()    //전체문서의 높이
+	var scr_top=$(window).scrollTop();
+	bgcolor();
+
+	///스크롤이 움직일때 (바를 드레그, 휠, 여러가지)
+	$(window).scroll(function(){
+		bgcolor();
+	})
+
+
+	//재사용 가능한 기능으로 기능이름 만들기.
+	function bgcolor(){
+		scr_top=$(window).scrollTop();
+		console.log("스크롤:"+scr_top);
+		//if(조건) {}
+		//scr_top<=1000 참일때 { 바디배경:빨강}
+		if(scr_top <= 1000){
+			$("body").css({background:"red"});
+		}else if(scr_top > 1000 && scr_top <= 2000){
+			$("body").css({background:"orange"})
+		}else if(scr_top > 2000 && scr_top <= 3000){
+			$("body").css({background:"gold"})
+		}else if(scr_top > 3000 && scr_top <= 4000){
+			$("body").css({background:"green"})
+		}else if(scr_top > 4000 && scr_top <= 5000){
+			$("body").css({background:"blue"})
+		}else if(scr_top > 5000 && scr_top <= 6000){
+			$("body").css({background:"navy"})
+		}else if(scr_top > 6000){
+			$("body").css({background:"violet"})
+		}
+	};//bgcolor 닫힘
+
+
+	scr_top=$(window).scrollTop();
+	console.log("스크롤:"+scr_top);
+	//if(조건) {}
+	//scr_top<=1000 참일때 { 바디배경:빨강}
+	if(scr_top <= 1000){
+		$("body").css({background:"red"});
+	}else if(scr_top > 1000 && scr_top <= 2000){
+		$("body").css({background:"orange"})
+	}else if(scr_top > 2000 && scr_top <= 3000){
+		$("body").css({background:"gold"})
+	}else if(scr_top > 3000 && scr_top <= 4000){
+		$("body").css({background:"green"})
+	}else if(scr_top > 4000 && scr_top <= 5000){
+		$("body").css({background:"blue"})
+	}else if(scr_top > 5000 && scr_top <= 6000){
+		$("body").css({background:"navy"})
+	}else if(scr_top > 6000){
+		$("body").css({background:"violet"})
+	}
+
+
+</script>

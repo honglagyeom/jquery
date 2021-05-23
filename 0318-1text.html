@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="animate.css">
+	<style>
+		.text-animate{font-size:50px;}
+	</style>
+</head>
+<body>
+<div class="text-animate">
+	글씨가 애니메이션되도록 만들기
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="jquery.lettering.js"></script>
+<script src="jquery.textillate.js"></script>
+<script>
+$(".text-animate").textillate({
+	initialDelay: 1500,
+	loop:true,
+	in: {
+		effect:"fadeIn",
+		delay:30, 		//글자하나당 지연시간
+		delayScale:3,
+		callback: function(){
+			$(".text-animate").css({border:"1px solid red"})
+		}
+	},
+	out: {
+		effect:"fadeOut",
+		shuffle:true
+	}
+});
+/*$(".text-animate").click(function(){
+	$(".text-animate").textillate("out");
+})*/
+
+
+</script>

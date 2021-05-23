@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        .box {
+            width: 7000px;
+            height: 500px;
+            border: 10px solid black;
+            background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+            /*90deg하면 90도 방향바껴서 옆으로 그라데이션*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body></html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    
+    var scroll_left= $(window).scrollLeft();
+    console.log(scroll_left)
+    
+    //마우스 휠 이벤트 (크롬기준)
+    $(window).on("mousewheel",function(event){
+    delta= event.originalEvent.wheelDelta; //이벤트객체중 휠속성값 받기
+    scroll_left = $(window).scrollLeft();
+       //console.log(delta) //휠 아래로 긁으면 - ,위로긁으면 +
+        $(window).scrollLeft(scroll_left-delta)//현재스크롤레프트+150
+        console.log(scroll_left)
+    
+    })
+    
+    //부드럽게 움직이게 하려면 애니메이트:스크롤left 사용하기
+</script>

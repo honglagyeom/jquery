@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+
+
+		*{position:relative; padding:0; margin:0;font-family:"Noto Sans KR", sans-serif;}
+		body,html{}
+		.btn-group{position:fixed; left:0; top:0;
+			height:100vh; width:150px;
+			background:rgba(0, 0, 0, 0.3);}
+		.btn{display:block;
+			border:2px solid black; background:white;color:black;
+			margin-top:30px;
+			text-align:center;font-size:25px;font-weight:700; letter-spacing:3px;
+			text-decoration:none;line-height:50px;
+			transition:0.3s;}
+
+		.btn:hover{background:black; color:white}
+		::selection{background:green;color:pink}
+		.cursor{
+			pointer-events:none;
+			position:fixed;top:50%; left:50%;
+			width:100px;height:100px; background:rgba(255, 0, 0, 0.5);
+			border-radius:50%;
+			display:flex; align-items:center; justify-content:center;
+			transform:translate(-50%,-50%);
+		}
+		.cursor span{font-weight:700}
+	</style>
+</head>
+<body>
+
+
+<div class="btn-group">
+	<a href="http://www.naver.com" target="_blank" class="btn btn1 event-c">네이버</a>
+	<a href="http://www.nate.com" target="_blank" class="btn btn2 event-c">네이트</a>
+</div>
+<div class="cursor">
+	<span class="cursor-t">CLICK</span>
+</div>
+
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(".btn1").text()//get text
+$(".btn2").text("디비컷");
+a=	$(".btn1").css("color")
+b= 	$(".btn1").css("border-width")
+console.log(a+"/"+b)
+
+c= 	$(".btn1").attr("href")
+console.log(c);
+$(".btn2").attr({href:"https://www.dbcut.com/",
+				target:"_slef"});
+
+//$(".cursor").offset({top:0,left:0})
+_top=	$(".cursor").offset().top
+_left=	$(".cursor").offset().left
+console.log(_top+"/"+_left)
+
+//화면 크기조절시
+$(window).resize(function(){
+	_top=	$(".cursor").offset().top
+	_left=	$(".cursor").offset().left
+	//console.log(_top+"/"+_left)
+})
+
+$(window).mousemove(function(event){
+	_x	=event.clientX;
+	_y	=event.clientY;
+	console.log("x축:" + _x);
+	console.log("x축:" + _y);
+	$(".cursor").css({top:_y,left:_x})
+
+})
+
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+		*{position:relative;}
+		.btn{padding:10px 20px;margin:10px;}
+		.box{width:100%; height:500px;background-color:red;}
+    </style>
+</head>
+<body>
+<button class="btn">CLICK버튼</button>
+<div class="box"></div>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    //애니메이트 - 큐:(시간값을 가진 함수) -콜백(실행후 실행)을 사용하기 편함.
+    //show,hide,toggle,fadeIn,fadeOut,fadeToggle,slideUp,slideDown,slideToggle
+    //animate({속성:값,속성:값},1000)
+    num=0;
+    console.log(num)
+    $(".btn").click(function(){
+    	num=num+1;
+    	console.log(num);
+    	$(".box").slideToggle(1000);
+    });
+</script>

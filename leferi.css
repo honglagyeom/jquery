@@ -1,0 +1,414 @@
+/*CSSFier : 마크업을 복사해서 css쪽에 붙혀넣기 만 하시면 저렇게 css 범위를 자동적으로 잡아줍니다.*/
+* {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+img {
+    display: block;
+}
+header,section {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.container {
+    width: calc(100% - 60px);
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/*수정될 부분*/
+body {
+    height: 12000px;
+}
+
+/* 스크롤탑값 표시*/
+.scr {
+    border: 10px solid black;
+    background: white;
+    font-size: 80px;
+    text-align: center;
+    width: 250px;
+    height: 80px;
+    z-index: 10000;
+    line-height: 72px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+/*header*/
+.header {    
+/*헤더, 색션 공통사항에 css적음 참고하기*/
+    z-index: 100;
+}
+
+.header .top {
+    transition: 0.3s;
+}
+
+.header .top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+}
+
+.header .logo {
+    flex: 1;
+}
+
+.header .logo img {
+    width: 200px;
+}
+
+.header .main-menu {
+    flex: 3;
+    /*logo에 비해서 3배*/
+    background: pink;
+    /*일단 비율 보기위해*/
+    display: flex;
+    justify-content: center;
+}
+
+.header .main-li {}
+
+.header .side-menu {
+    flex: 1;
+    background: violet;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header .side-li {}
+
+.header .top2 {
+    transition: 0.3s;
+}
+
+.header .top2 .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .top2 .container .text {
+    text-transform: uppercase;
+    font-size: 12vw;
+    font-weight: 900;
+}
+
+.header .gap {
+    width: 20px;
+}
+
+.header .t1 {
+    color: #a8bde5;
+}
+
+.header .t2 {
+    color: #a6bbe6;
+}
+
+.header .t3 {
+    color: #a9bbe2;
+}
+
+.header .t4 {
+    color: #bfb4da;
+}
+
+.header .t5 {
+    color: #d9b0d0;
+}
+
+.header .t6 {
+    color: #e8a7c2;
+}
+
+.header .t7 {
+    color: #eca0b9;
+}
+
+.header .t8 {
+    color: #ff9187;
+}
+
+.header .t9 {
+    color: #ff9481;
+}
+
+.header .t10 {
+    color: #ff9277;
+}
+
+/*section1 동영상부분*/
+
+.section {
+/*    섹션css 공통사항 참고*/
+}
+.section.section1{
+}
+.section1 .vod {
+    position: absolute;
+    width: 90%;
+    height: 60vh;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.section1 video {
+    min-width: 100%;
+    min-height: 100%;
+    /*min은 cover효과*/
+}
+.section1 .container {
+    top:100vh; /*텍스트 안보이게*/
+}
+.section1 p {
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+.section1 br {
+}
+
+/*section2*/
+.section {
+}
+.section2{
+    background: white;
+    top:100vh;
+    padding-bottom: calc(40vh + 200px);
+    padding-top: 100px;
+    
+}
+.section2 .container {
+    width:calc(100% - 60px);
+    max-width: 1200px;
+}
+.section2 .container h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 55px;
+    margin-bottom: 50px;
+}
+
+.section2 .container .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 30vh;
+    column-gap: 50px;
+}
+.section2 .grid .item {
+
+}
+
+.section2 .grid .item:nth-child(3n){
+    top:40vh;
+}
+.section2 .grid .item:nth-child(3n-1){
+    top:20vh;
+}
+/*1,4,7,번*/
+.section2 .grid .item:nth-child(3n-2){
+    top:0;
+} 
+
+.section2 .grid .item img {
+    width: 100%;
+}
+.section2 .grid .item .name {
+}
+
+/*section3 그라데이션시작*/
+.section.section3{
+    top:100%;
+    left: 0;
+    /*fixed되있는 상태임*/
+    width: 100%;
+    height: 100vh;
+}
+.section3 .bg-vod {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.section3 video {
+    min-width: 100%;
+    min-height: 100%;
+}
+.section3 .view{
+    position: absolute;
+    /*포지션absolute안하면 내용이 배경에 가려져서 아무것도 안보임 */
+} 
+.section3 .view1{
+    top:0; left: 0;
+}
+.section3 .view2{
+    top:100%; left: 0;
+    
+}
+.section3 .view3{
+    top:0; left: 0; opacity: 0;
+}
+.section3 .view1{
+    padding-left: 50px;
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.section3 .view1 .text{
+    font-size: 200px;
+    color: white;
+    text-transform: uppercase;
+    line-height: 180px;
+    font-weight: 900;
+    letter-spacing: -2px;
+
+}
+/*초기값 변경필요*/
+.section3 .view1 .text1{left:100%;} /*안보이게 100%;*/
+.section3 .view1 .text2{left: -100%;}
+.section3 .view1 .text3{left: 100%;}
+
+/*지울 것(한섹션 꾸밀때 다른섹션 displat:none해놓고 꾸미기)*/
+.section3 .view1{}
+.section3 .view2{}
+.section3 .view3{} 
+
+
+.section3 .view2{
+    display: flex; /*wrap,box-group이 가로로 나열된거지*/
+    color: white;
+}
+.section3 .view2 > .wrap{
+    width: 100vw;
+    height: 100vh;
+}
+.section3 .view2 > .wrap h1{
+    font-size: 70px;
+    position: absolute;
+    left: 30%;
+    top:30%;
+    
+}
+.section3 .view2 > .wrap h1 .more{
+    font-size: 18px;
+    display: block;
+    text-indent: 50px;
+    margin-top: 50px;
+}
+.section3 .view2 > .wrap h1 .more .circle{
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    display: block;
+    position: absolute;
+    left: 30px;
+    top:5px;
+    border-radius: 50%;
+}
+.section3 .view2 > .wrap p{
+    position: absolute;
+    left: 70%;
+    top:70%;
+    font-size: 27px;
+    width: 400px;
+    font-weight: 900;
+}
+.section3 .view2 .box-group{
+    display: flex;
+}
+.section3 .view2 .box-group .item{
+    margin-left: 230px;
+    height: 100vh;
+    width: 900px;
+}
+.section3 .view2 .box-group .item1{
+    background: #818ded;
+}
+.section3 .view2 .box-group .item2{
+    background: #a956c9;
+}
+.section3 .view2 .box-group .item3{
+    background: #e8979a;
+}
+.section3 .view2 .box-group .item4{
+    background: #a872e8;
+}
+.section3 .view2 .box-group .item .wrap{}
+.section3 .view2 .box-group .item .wrap1{
+    margin: 50px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    font-size: 35px;
+}
+.section3 .view2 .box-group .item .wrap1 h1 span{
+   font-size: 15px;
+    position: absolute;
+    top: 5px;
+    left: 210px;
+}
+.section3 .view2 .box-group .item .wrap2{
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+   
+}
+.section3 .view2 .box-group .item .wrap2 p{
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+.section3 .view2 .box-group .item .wrap2 span{
+    display: block;
+    width: 800px;
+    height: 0.5px;
+    background: white;
+    margin: 0 auto;
+    
+}
+.section3 .view2 .box-group .item .wrap3{
+    margin-left: 50px;
+    padding-top: 60px;
+    font-size: 18px;
+}
+.section3 .view2 .box-group .item .wrap3 h2{
+    padding-bottom: 10px;
+}
+.section3 .view2 .box-group .item .wrap3 p{
+    font-size: 25px;
+    
+}
+.section3 .view3{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section3 .view3 .wrap{
+    text-align: center;
+    color: white;
+    
+}
+.section3 .view3 .wrap h1{
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding-bottom: 30px;
+    
+}

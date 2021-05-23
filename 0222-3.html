@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.number{width:100px; height:50px;border:10px solid black;}
+
+	</style>
+</head>
+<body>
+
+<div class="number">ddd</div>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+var	num=0;
+//문서시작하자마자
+$(".number").text(num);
+
+//1초 간격interval마다 함수 실행
+//setInterval(함수명,시간간격)
+var aa_timer=setInterval(aa,100)
+
+$(window).click(function(){
+	clearInterval(aa_timer)
+});
+
+//aa라는 함수
+function aa(){
+	num++;
+	$(".number").text(num);
+}
+
+</script>

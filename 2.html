@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+		  rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		*{padding:0; margin:0; position:relative;}
+		.slide-group{width:1200px;height:750px;margin: 0 auto;}
+		.slide-group .img-group{width:1000px;height:700px;margin: 0 auto;}
+		.slide-group .img-group img{position:absolute; top:0; left:0;}
+		.slide-group .arrow{border:1px solid red;
+			position:absolute;top:50%; left:0;
+		width:100%;height:0;}
+		.slide-group .arrow i{position:absolute; top:0; font-size:50px;
+		border:1px solid red;width:100px;}
+		.slide-group .arrow .left-btn{left:0;text-align:right}
+		.slide-group .arrow .right-btn{right:0; text-align:left}
+		.slide-group .indicator{text-align:center}
+		.slide-group .indicator .indi{display:inline-block;
+		width:20px; height:20px; border-radius:50%;background:gray;
+			margin:10px;
+		}
+
+		.left-btn,.right-btn,.indi{cursor:pointer;}
+	</style>
+</head>
+<body>
+<div class="slide-group">
+	<div class="img-group">
+		<img src="0.jpg" class="img">
+		<img src="1.jpg" class="img">
+		<img src="2.jpg" class="img">
+		<img src="3.jpg" class="img">
+	</div>
+	<div class="arrow">
+		<i class="fas fa-caret-left left-btn"></i>
+		<i class="fas fa-caret-right right-btn"></i>
+	</div>
+	<div class="indicator">
+		<span class="indi"></span>
+		<span class="indi"></span>
+		<span class="indi"></span>
+		<span class="indi"></span>
+	</div>
+</div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+var num=0; //변수선언;
+slide();
+$(".right-btn").click(function(){
+	num++;//num=num+1
+	num=num%4;
+	console.log("num:"+num)
+	slide();
+})
+$(".left-btn").click(function(){
+	num--;//num=num+1
+	num=num%4;
+	console.log("num:"+num);
+	slide();
+})
+$(".indi").click(function(){
+	num=$(this).index();
+	slide()
+})
+
+///재사용 함수
+function slide(){
+	active		=$(".img").eq(num);
+	active_btn 	=$(".indi").eq(num);
+	active.stop().fadeIn();
+	$(".img").not(active).stop().fadeOut();
+	active_btn.css({background:"black"})
+	$(".indi").not(active_btn).css({background:"gray"})
+}
+
+
+
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <h1 class="a">뒤에다가 첨부하다</h1>
+        <h1 class="b">앞에다가 첨부하다</h1>
+        <span class="item">아이템</span>
+    </div>
+    
+    <p class="p">ppppppppppppppp</p>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    
+    $(".a").append("aaa")
+    $(".b").prepend("bbb")
+    $(".box").prepend($(".item"))
+    
+    $(".p").appendTo(".box") //박스안 마지막에 p를 넣음
+</script>

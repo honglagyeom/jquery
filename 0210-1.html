@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{height:5000px;
+            background-image:linear-gradient(red,gold,green,cornflowerblue,palevioletred);}
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+//문서가 준비되었을때 이벤트
+$(document).ready(function(){
+    scr_top =   $(window).scrollTop();
+    console.log("스크롤탑초기값: " + scr_top)
+})
+
+
+$(window).scroll(function(){
+	scr_top =   $(window).scrollTop();
+	console.log(scr_top)
+})
+</script>

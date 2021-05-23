@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="0308-3.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Design Percentage Progressbar</h1>
+    </header>
+    <section>
+        <div class="container">
+            <div class="item item1">
+                <h5 class="item-name">PHOTOSHOP</h5>
+                <div class="item-num">
+                    <span class="number">100</span>
+                    <span>%</span>
+                </div>
+                <div class="item-bar bar1">
+                    <div class="fill fill1"></div>
+                </div>
+            </div>
+            <div class="item item2">
+                <h5 class="item-name">HTML5/CSS3</h5>
+                <div class="item-num">
+                    <span class="number">100</span>
+                    <span>%</span>
+                </div>
+                <div class="item-bar">
+                    <div class="fill fill2"></div>
+                </div>
+            </div>
+            <div class="item item3">
+                <h5 class="item-name">J-QUERY</h5>
+                <div class="item-num">
+                    <span class="number">100</span>
+                    <span>%</span>
+                </div>
+                <div class="item-bar bar3">
+                    <div class="fill fill3"></div>
+                </div>
+            </div>
+            <div class="item item4">
+                <h5 class="item-name">ILLUSTRATOR</h5>
+                <div class="item-num">
+                    <span class="number">100</span>
+                    <span>%</span>
+                </div>
+                <div class="item-bar bar4">
+                    <div class="fill fill4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(".item .fill1").stop().animate({width:"100%"},5000)
+    $(".item .fill2").stop().animate({width:"94%"},5000)
+    $(".item .fill3").stop().animate({width:"70%"},5000)
+    $(".item .fill4").stop().animate({width:"84%"},5000)
+    
+    
+    $(".item1 .number").stop().animate({val:100},{
+        duration:5000,
+        start:function(){$(".item1 .number").text(0)},
+        step:function(){$(".item1 .number").text( Math.round(this.val) )},
+        complete: function(){$(".item1 .number").text(100);}
+    })
+    $(".item2 .number").stop().animate({val:94},{
+        duration:5000,
+        start:function(){$(".item2 .number").text(0)},
+        step:function(){$(".item2 .number").text( Math.round(this.val) )},
+        complete: function(){$(".item2 .number").text(94);}
+    })
+    $(".item3 .number").stop().animate({val:70},{
+        duration:5000,
+        start:function(){$(".item3 .number").text(0)},
+        step:function(){$(".item3 .number").text( Math.round(this.val) )},
+        complete: function(){$(".item3 .number").text(70);}
+    })
+    $(".item4 .number").stop().animate({val:84},{
+        duration:5000,
+        start:function(){$(".item4 .number").text(0)},
+        step:function(){$(".item4 .number").text( Math.round(this.val) )},
+        complete: function(){$(".item4 .number").text(84);}
+    })
+    
+</script>
